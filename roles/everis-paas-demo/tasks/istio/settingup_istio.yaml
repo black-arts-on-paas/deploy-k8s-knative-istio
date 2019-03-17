@@ -1,12 +1,31 @@
 ---
+
+- name: Create Service Account to map RBAC
+  shell: |
+    kubectl --namespace default \
+    create sa {{ gcp.k8s_admin_sa }}
+
+- name: Activate RBAC
+  shell: |
+    kubectl create clusterrolebinding {{ gcp.k8s_admin_binding }} \
+    --clusterrole=cluster-admin \
+    --serviceaccount=default:{{ gcp.k8s_admin_sa }}
+
+
 - name: Install CRDs for istio support
   shell: |
     kubectl apply \
     --filename \
     https://github.com/knative/serving/releases/download/v0.4.0/istio-crds.yaml
 
-- name: Deplo Istio system
+- name: Deploy Istio system
   shell: |
     kubectl apply \
     --filename \
     https://github.com/knative/serving/releases/download/v0.4.0/istio.yaml
+
+
+- name: Label default namespace for envoy injection
+  shell: |
+    kubectl label namespace \
+    default istio-injection=enabled

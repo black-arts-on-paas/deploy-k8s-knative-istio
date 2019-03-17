@@ -12,3 +12,11 @@ gcp:
   k8s_min_nodes: 1
   k8s_man_nodes: 4
   k8s_num_nodes: 2
+  k8s_admin_sa: demo-paas
+  k8s_admin_binding: root-sa-binding
+  k8s_tiller_sa: tiller
+  k8s_tiller_binding: tiller
+
+
+  helm:
+    dw_url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
