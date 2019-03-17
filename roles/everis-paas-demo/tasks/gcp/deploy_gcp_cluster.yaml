@@ -1,0 +1,25 @@
+---
+- name: Verify if cluster already exist
+  shell: gcloud container clusters list --format="value(name)"
+  register: current_deploy_cluster
+
+- name: Deploy the cluster to {{ platform }}
+  shell: |
+    gcloud container clusters create {{ gcp.k8s_cluster_name }} \
+                            --zone {{ gcp.zone }} \
+                            --scopes cloud-platform \
+                            --enable-cloud-logging \
+                            --enable-cloud-monitoring \
+                            --enable-autorepair \
+                            --enable-autoupgrade  \
+                            --enable-autoscaling \
+                            --min-nodes {{ gcp.k8s_min_nodes }} \
+                            --max-nodes {{ gcp.k8s_man_nodes }} \
+                            --num-nodes {{ gcp.k8s_num_nodes }}
+  when: gcp.k8s_cluster_name not in current_deploy_cluster.stdout.split()
+
+- debug:
+    msg: " Cluster {{ gcp.k8s_cluster_name }} already exist into project: {{ gcp.project_id }} "
+
+- name: Get cluster Credential
+  shell: gcloud container clusters get-credentials {{ gcp.k8s_cluster_name }}

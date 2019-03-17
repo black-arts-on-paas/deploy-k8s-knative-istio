@@ -1,0 +1,43 @@
+---
+- name: Install gnu tar to use unarchive ansible module
+  homebrew: 
+    name: 
+      - gnu-tar
+    state: present
+
+- name: Install {{ platform }} sdk 
+  shell: brew cask install google-cloud-sdk
+
+- name: refresh hashe
+  shell: hash -r
+
+#- name: Verify if tar.gz of sdk does exist
+#  stat: 
+#    path: /tmp/google-cloud-sdk-{{ mac_os.sdk_version }}-darwin-{{ mac_os.arc }}.tar.gz
+#  register: sdk_information
+#
+#- name: Download gcp sdk for {{ ansible_distribution }}
+#  get_url:
+#    url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ mac_os.sdk_version }}-darwin-{{ mac_os.arc }}.tar.gz"
+#    dest: /tmp
+#  when: sdk_information.stat.exists == False
+#
+#- name: Create tmp dir to uncompress sdk
+#  file:
+#    path: /tmp/{{ platform }}
+#    state: directory
+#
+#- name: Unarchive sdk of {{ platform }}
+#  unarchive:
+#    src: "/tmp/google-cloud-sdk-{{ mac_os.sdk_version }}-darwin-{{ mac_os.arc }}.tar.gz"
+#    dest: "/tmp/gcp"
+#    creates: /tmp/gcp/google-cloud-sdk
+#
+#- name: Installing {{ platform }} sdk
+#  shell: /tmp/gcp/google-cloud-sdk/install.sh
+#  environment: 
+#    CLOUDSDK_CORE_DISABLE_PROMPTS: 1
+#
+#- name: Copy
+  
+

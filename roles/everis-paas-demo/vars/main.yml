@@ -1,0 +1,14 @@
+---
+# vars file for everis-paas-demo
+mac_os:
+  sdk_version: '238.0.0'
+  arc: 'x86_64'
+
+gcp:
+  project_id: everis-paas-demo-1
+  zone: 'us-central1-a'
+  resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
+  k8s_cluster_name: demo-paas
+  k8s_min_nodes: 1
+  k8s_man_nodes: 4
+  k8s_num_nodes: 2

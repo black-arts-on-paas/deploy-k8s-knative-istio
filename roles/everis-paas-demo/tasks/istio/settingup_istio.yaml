@@ -1,0 +1,12 @@
+---
+- name: Install CRDs for istio support
+  shell: |
+    kubectl apply \
+    --filename \
+    https://github.com/knative/serving/releases/download/v0.4.0/istio-crds.yaml
+
+- name: Deplo Istio system
+  shell: |
+    kubectl apply \
+    --filename \
+    https://github.com/knative/serving/releases/download/v0.4.0/istio.yaml

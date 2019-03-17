@@ -1,0 +1,9 @@
+- hosts: local-deploy
+  connection: local
+  gather_facts: yes
+  vars:
+    platform: gcp 
+  pre_tasks:
+    - import_tasks: "{{ playbook_dir }}/roles/everis-paas-demo/tasks/{{ platform }}/install_{{ platform }}_sdk.yaml"
+  roles:
+    - everis-paas-demo

@@ -1,0 +1,17 @@
+---
+- name: Verify If gcp_key was setting
+  fail: msg="gcp_keyfile for {{ platform }} loggin  was no defined.This play requires 'gcp_keyfile'"
+  when: gcp_keyfile is not defined
+
+- name: Loggin into {{ platform }}
+  shell: gcloud auth activate-service-account --key-file {{ gcp_keyfile }}
+
+- name: Set gcloud Zone
+  shell: gcloud config set compute/zone {{ gcp.zone }} 
+
+- name: Set {{ platform }} and project resources
+  shell: gcloud config set project {{ gcp.project_id }}
+
+- name: Set resource to project
+  shell: gcloud services enable {{ item }}
+  loop: "{{ gcp.resources }}"

@@ -1,0 +1,10 @@
+---
+# tasks file for everis-paas-demo
+- include_tasks: gcp/settingup_gcp_loggin.yaml
+  when: platform == 'gcp'
+
+- include_tasks: gcp/deploy_gcp_cluster.yaml
+  when: platform == 'gcp'
+
+- include_tasks: istio/settingup_istio.yaml
+  
