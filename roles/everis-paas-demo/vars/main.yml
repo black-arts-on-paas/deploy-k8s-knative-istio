@@ -5,7 +5,7 @@ mac_os:
   arc: 'x86_64'
 
 gcp:
-  project_id: everis-paas-demo-1
+  project_id: everis-paas-demo-2
   zone: 'us-central1-a'
   resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
   k8s_cluster_name: demo-paas
@@ -16,6 +16,9 @@ gcp:
   k8s_admin_binding: root-sa-binding
   k8s_tiller_sa: tiller
   k8s_tiller_binding: tiller
+
+demo:
+  namespaces: 'default'
 
 
   helm:

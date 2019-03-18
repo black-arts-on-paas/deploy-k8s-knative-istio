@@ -1,0 +1,6 @@
+---
+- name: Deploy tiller permissions
+  shell: kubectl apply -f {{ role_path }}/tasks/helm/tiller-prerequisites.yaml 
+
+- name: Install tiller server
+  shell: helm init --service-account tiller

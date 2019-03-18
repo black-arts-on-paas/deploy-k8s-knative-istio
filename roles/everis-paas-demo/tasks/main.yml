@@ -6,5 +6,9 @@
 - include_tasks: gcp/deploy_gcp_cluster.yaml
   when: platform == 'gcp'
 
+- include_tasks: helm/settingup_helm.yaml
+
 - include_tasks: istio/settingup_istio.yaml
+
+- include_tasks: knative/settingup_knative.yaml
   

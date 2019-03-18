@@ -1,20 +1,5 @@
 ---
+- import_tasks: helm/mac_osx/macos_helm_install.yaml
+  when: ansible_distribution == 'MacOSX'
 
-
-
-- name: Download Helm script
-  get_url:
-    url: '{{ helm.dw_url }}'
-    dest: /tmp
-  
-
-- name: Create Service Account to map RBAC
-  shell: |
-    kubectl --namespace default \
-    create sa {{ gcp.k8s_tiller_sa }}
-
-- name: Activate RBAC
-  shell: |
-    kubectl create clusterrolebinding {{ gcp.k8s_tiller_binding }} \
-    --clusterrole=cluster-admin \
-    --serviceaccount=default:{{ gcp.k8s_tiller_sa }}
+- include_tasks: helm/deploy_tiller.yaml

@@ -1,16 +1,14 @@
 ---
-
-- name: Create Service Account to map RBAC
+- name: Query Permissions
   shell: |
-    kubectl --namespace default \
-    create sa {{ gcp.k8s_admin_sa }}
+    kubectl auth can-i '*' '*' --as $(gcloud config get-value core/account)
+  register: cluster_permissions
 
-- name: Activate RBAC
+- name: Setting Up permission to local user to deploy Istio
   shell: |
-    kubectl create clusterrolebinding {{ gcp.k8s_admin_binding }} \
-    --clusterrole=cluster-admin \
-    --serviceaccount=default:{{ gcp.k8s_admin_sa }}
-
+    kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin \
+    --user=$(gcloud config get-value core/account)
+  when: cluster_permissions.stdout != 'yes'
 
 - name: Install CRDs for istio support
   shell: |
@@ -24,8 +22,13 @@
     --filename \
     https://github.com/knative/serving/releases/download/v0.4.0/istio.yaml
 
+- name: Query labels on default namepsaces
+  shell: |
+    kubectl get ns -l 'istio-injection=enabled' -o name
+  register: namespace_labels 
 
 - name: Label default namespace for envoy injection
   shell: |
     kubectl label namespace \
     default istio-injection=enabled
+  when: ('namespace/'+demo.namespaces not in namespace_labels.stdout.split())
