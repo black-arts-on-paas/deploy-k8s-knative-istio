@@ -1,9 +1,9 @@
 Roles Name
 =========
 
-### GCP: Install SDK Google
-### Istio: Install Istio Control and Data plane
-### Knative: Install Knative and Dependencies
+### GCP:  Install SDK Google and "gcloud" CLI tool
+### Istio:  Install Istio Control and Data plane
+### Knative:  Install Knative and Dependencies
 ### Helm: Install Tiller server and Helm
 
 

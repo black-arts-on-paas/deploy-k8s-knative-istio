@@ -16,6 +16,7 @@ gcp:
   k8s_admin_binding: root-sa-binding
   k8s_tiller_sa: tiller
   k8s_tiller_binding: tiller
+  sdk_working_directory: /home
 
 demo:
   namespaces: 'default'
