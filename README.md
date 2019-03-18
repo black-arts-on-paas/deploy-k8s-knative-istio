@@ -1,10 +1,12 @@
 Role Name
 =========
 
-### GCP: Install SDK Google 
-### Istio:
-### Knative:
-### Istio:
+### GCP: Install SDK Google
+### Istio: Install Istio Control and Data plane
+### Knative: Install Knative and Dependencies
+### Helm: Install Tiller server and Helm
+
+
 Requirements
 ------------
 
@@ -18,6 +20,8 @@ A description of the settable variables for this role should go here, including 
 
 ## Example for Google Cloud Compute
 ----------------
+
+---
     - hosts: local-deploy
       connection: local
       gather_facts: yes
@@ -27,6 +31,7 @@ A description of the settable variables for this role should go here, including 
         - import_tasks: "{{ playbook_dir }}/roles/everis-paas-demo/tasks/{{ platform }}/install_{{ platform }}_sdk.yaml"
       roles:
         - everis-paas-demo
+---
 
 ## To Run and Test PaaS demo
 
@@ -34,7 +39,7 @@ A description of the settable variables for this role should go here, including 
 ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 ```
 
-## Note:
+## Note
 More Platforms like a Azure or AWS to soon. 
 
 License
