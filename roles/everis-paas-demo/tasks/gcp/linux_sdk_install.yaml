@@ -1,11 +1,11 @@
 ---
 
-- name: Check if Packet exists
+- name: Check if package exists
   stat:
      path: "{{ gcp.sdk_working_directory }}/sdk_install.sh"
   register: sdk_information
 
-- name: Download SDK packet
+- name: Download SDK package
   get_url:
      url: "{{ gcp.sdk_url }}"
      dest: "{{ gcp.sdk_working_directory }}/sdk_install.sh"
@@ -13,7 +13,7 @@
   when: sdk_information.stat.exists == False
 
 
-- name: Intall SDK packet
+- name: Intall SDK package
   shell: |
      "{{ gcp.sdk_working_directory }}/sdk_install.sh" \
      --disable-prompts \
