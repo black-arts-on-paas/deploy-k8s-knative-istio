@@ -1,4 +1,4 @@
-Role Name
+Roles Name
 =========
 
 ### GCP: Install SDK Google
@@ -52,11 +52,5 @@ Author Information
 
 Jesus Sanchez
 Jonis González
-
-
-
-
-## To Run and Test PaaS demo
-### Note: Just need to add google compute engine key path to deploy this current example.
 
  
