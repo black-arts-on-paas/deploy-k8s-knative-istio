@@ -18,3 +18,10 @@
      "{{ gcp.sdk_working_directory }}/sdk_install.sh" \
      --disable-prompts \
      --install-dir={{ gcp.sdk_working_directory }}
+
+
+- name: Create Path to CLI tool
+  file:
+     src: "{{ gcp.sdk_working_directory }}/google-cloud-sdk/bin/gcloud"
+     dest: /usr/bin/gcloud
+     state: link
