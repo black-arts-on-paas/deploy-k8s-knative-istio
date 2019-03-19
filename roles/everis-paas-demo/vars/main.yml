@@ -25,6 +25,7 @@ api:
   name:
     v1: gc-example-a
     v2: gc-example-b
+  frontend: por-definir  
 
   helm:
     dw_url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
