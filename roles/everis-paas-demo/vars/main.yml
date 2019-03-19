@@ -17,6 +17,7 @@ gcp:
   k8s_tiller_sa: tiller
   k8s_tiller_binding: tiller
   sdk_working_directory: /home
+  sdk_url: https://sdk.cloud.google.com
 
 demo:
   namespaces: 'default'
