@@ -5,7 +5,7 @@ mac_os:
   arc: 'x86_64'
 
 gcp:
-  project_id: everis-paas-demo-2
+  project_id: helical-apricot-222515
   zone: 'us-central1-a'
   resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
   k8s_cluster_name: demo-paas
@@ -18,6 +18,7 @@ gcp:
   k8s_tiller_binding: tiller
   sdk_working_directory: /home
   sdk_url: https://sdk.cloud.google.com
+  components: ['kubectl',]
 
 demo:
   namespaces: 'default'
@@ -30,6 +31,7 @@ api:
 
   helm:
     dw_url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
+    dw_directory: /home
 
 #Observability Kiali
 KIALI_USERNAME: admin

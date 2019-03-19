@@ -1,0 +1,19 @@
+---
+
+- name: Check if script exists
+  stat:
+     path: "{{ helm.dw_directory }}/helm_install.sh"
+  register: helm_information
+
+- name: Download Helm install script
+  get_url:
+     url: "{{ helm.dw_url }}"
+     dest: "{{ gcp.sdk_working_directory }}/sdk_install.sh"
+     mode: 0777
+  when: helm_information.stat.exists == False
+
+
+- name: Install Helm client
+  shell: |
+     "{{ helm.dw_directory }}/helm_install.sh" \
+  when: helm_information.stat.exists == False

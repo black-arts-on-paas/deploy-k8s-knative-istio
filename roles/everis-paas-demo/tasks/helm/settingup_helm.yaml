@@ -2,4 +2,8 @@
 - import_tasks: helm/mac_osx/macos_helm_install.yaml
   when: ansible_distribution == 'MacOSX'
 
+
+- import_tasks: helm/linux/linux_helm_install.yaml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Debian' or ansible_distribution == 'RedHat' or ansible_distribution == 'Ubuntu'
+
 - include_tasks: helm/deploy_tiller.yaml

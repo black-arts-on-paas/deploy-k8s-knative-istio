@@ -5,6 +5,11 @@
      path: "{{ gcp.sdk_working_directory }}/sdk_install.sh"
   register: sdk_information
 
+- name: Check if Google Package Directory exists
+  stat:
+     path: "{{ gcp.sdk_working_directory }}/google-cloud-sdk"
+  register: google_pkg
+
 - name: Download SDK package
   get_url:
      url: "{{ gcp.sdk_url }}"
@@ -13,15 +18,25 @@
   when: sdk_information.stat.exists == False
 
 
-- name: Intall SDK package
+- name: Install SDK package
   shell: |
      "{{ gcp.sdk_working_directory }}/sdk_install.sh" \
      --disable-prompts \
      --install-dir={{ gcp.sdk_working_directory }}
+  when: google_pkg.stat.exists == False
+
+
+- name: Install CLI tools
+  shell: |
+    gcloud components install {{ item }}
+  loop: "{{ gcp.components }}"
 
 
 - name: Create Path to CLI tool
-  file:
-     src: "{{ gcp.sdk_working_directory }}/google-cloud-sdk/bin/gcloud"
-     dest: /usr/bin/gcloud
-     state: link
+  lineinfile:
+     path: /etc/profile.d/env.sh
+     line: export PATH="$PATH:{{ gcp.sdk_working_directory }}/google-cloud-sdk/bin"
+     create: yes
+
+- name: lukita
+  shell: source /etc/profile.d/env.sh
