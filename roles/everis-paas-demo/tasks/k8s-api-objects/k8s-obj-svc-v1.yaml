@@ -4,8 +4,8 @@ metadata:
   annotations:
   creationTimestamp: 2019-02-07T21:16:55Z
   labels:
-    app: {{ api-name-v1 }} 
-  name: {{ api-name-v1 }}
+    app: {{ api.name.v1 }} 
+  name: {{ api.name.v1 }}
   namespace: {{ default }}
   resourceVersion: "2866054"
   uid: b24dd9db-2b1d-11e9-b70a-42010a8002be
@@ -16,7 +16,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: {{ api-name-v1 }}
+    app: {{ api.name.v1 }}
   sessionAffinity: None
   type: ClusterIP
 status:

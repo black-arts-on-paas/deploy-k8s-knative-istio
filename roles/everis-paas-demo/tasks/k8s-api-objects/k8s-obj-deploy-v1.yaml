@@ -5,9 +5,9 @@ metadata:
   creationTimestamp: 2019-02-07T21:16:56Z
   generation: 1
   labels:
-    app: {{ api-name-v1 }}
+    app: {{ api.name.v1 }}
     version: v1
-  name: {{ api-name-v1 }}
+  name: {{ api.name.v1 }}
   namespace: {{ demo.namespaces }}
   resourceVersion: "2908194"
   uid: b2a92eb9-2b1d-11e9-b70a-42010a8002be
@@ -17,7 +17,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: {{ api-name-v1 }}
+      app: {{ api.name.v1 }}
       version: v1
   strategy:
     rollingUpdate:
@@ -28,13 +28,13 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ api-name-v1 }}
+        app: {{ api.name.v1 }}
         version: v1
     spec:
       containers:
-      - image: gcr.io/{{ project_id }}/{{ api-name-v1 }}:1.0.0
+      - image: gcr.io/{{ project_id }}/{{ api.name.v1 }}:1.0.0
         imagePullPolicy: IfNotPresent
-        name: {{ api-name-v1 }}
+        name: {{ api.name.v1 }}
         ports:
         - containerPort: 8080
           protocol: TCP
