@@ -24,3 +24,7 @@ demo:
 
   helm:
     dw_url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
+
+#Observability Kiali
+KIALI_USERNAME: admin
+KIALI_PASSPHRASE: admin

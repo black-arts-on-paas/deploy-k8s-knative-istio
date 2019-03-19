@@ -1,0 +1,9 @@
+---
+- name: DDonwload Kiali Script
+  shell: wget https://raw.githubusercontent.com/kiali/kiali/master/deploy/kubernetes/deploy-kiali-to-kubernetes.sh 
+
+- name: Set execute permissions to file script
+  shell: chmod +x deploy-kiali-to-kubernetes.sh
+
+- name: Install Kiali
+  schell: sh deploy-kiali-to-kubernetes.sh
