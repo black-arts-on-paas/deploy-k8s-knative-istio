@@ -42,7 +42,7 @@ Requirements
 
 
 <p align="center">
-<img width="700" height="400" src="img/create_sa.jpg" title="Create SA">
+<img width="700" height="400" src="img/create_sa.JPG" title="Create SA">
 </p>
 
 ***
@@ -64,7 +64,7 @@ Requirements
 
 
 
-- Download the key to the local path for deploy this pllaybook
+- Download the key to the local path for deploy this playbook
 
 
 ## Example for Google Cloud Compute
