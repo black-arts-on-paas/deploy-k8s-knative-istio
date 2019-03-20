@@ -36,7 +36,7 @@ Roles
 
 
 
-<img title="Kiali" width="80" height="80" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
+<img title="Kiali" width="100" height="100" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
 
 
 - Install Kiali to Service Mesh Observavility
@@ -93,19 +93,6 @@ Requirements
 
 
 ### To Run and Test PaaS demo
-----------------
-
-
-    - hosts: local-deploy
-      connection: local
-      gather_facts: yes
-      vars:
-        platform: gcp 
-      pre_tasks:
-        - import_tasks: "{{ playbook_dir }}/roles/everis-paas-demo/tasks/{{ platform }}/install_{{ platform }}_sdk.yaml"
-      roles:
-        - everis-paas-demo
-
 
 ```bash
 ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
@@ -117,6 +104,8 @@ ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 ## Note
 - More Platforms like a Azure or AWS to soon.
 * Windows Environment to soon.
+
+
 
 
 
