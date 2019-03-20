@@ -29,9 +29,11 @@ api:
     v2: gc-example-b
   frontend: por-definir  
 
-  helm:
-    dw_url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
-    dw_directory: /home
+helm:
+  dw_url: https://storage.googleapis.com/kubernetes-helm/helm-v2.13.0-linux-amd64.tar.gz
+  dw_directory: /home
+  pkg_name: helm-v2.13.0-linux-amd64.tar.gz
+
 
 #Observability Kiali
 KIALI_USERNAME: admin
