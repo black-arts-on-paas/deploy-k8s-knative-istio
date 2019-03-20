@@ -114,7 +114,7 @@ ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 Author Information
 ------------------
 
-<img width="100" height="100" src="https://everislima.hiringroom.com/data/accounts/everislima/profile.jpg" >
+<img width="120" height="120" src="https://everislima.hiringroom.com/data/accounts/everislima/profile.jpg" >
 
 
 
