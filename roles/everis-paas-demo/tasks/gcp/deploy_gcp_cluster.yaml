@@ -33,5 +33,5 @@
   shell: |
     kubectl create clusterrolebinding cluster-admin-binding \
     --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
-  when: cluster_permissions.stdout != 'yes'
+  when: cluster_permissions.stdout == 'no'
 
