@@ -83,10 +83,10 @@ Requirements
 
 
 
-## Example for Google Cloud Compute
+### To Run and Test PaaS demo
 ----------------
 
----
+
     - hosts: local-deploy
       connection: local
       gather_facts: yes
@@ -96,13 +96,14 @@ Requirements
         - import_tasks: "{{ playbook_dir }}/roles/everis-paas-demo/tasks/{{ platform }}/install_{{ platform }}_sdk.yaml"
       roles:
         - everis-paas-demo
----
 
-### To Run and Test PaaS demo
 
 ```bash
 ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 ```
+
+---
+
 
 ## Note
 - More Platforms like a Azure or AWS to soon.
