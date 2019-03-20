@@ -1,9 +1,18 @@
 ---
-- name: DDonwload Kiali Script
-  shell: wget https://raw.githubusercontent.com/kiali/kiali/master/deploy/kubernetes/deploy-kiali-to-kubernetes.sh 
 
-- name: Set execute permissions to file script
-  shell: chmod +x deploy-kiali-to-kubernetes.sh
+
+- name: Check if Kiali Exists
+  stat:
+     path: "{{ gcp.sdk_working_directory }}/deploy-kiali-to-kubernetes.sh"
+  register: kiali_information
+
+- name: Download Kiali Script
+  get_url:
+     url: "{{ kiali.dw_url }}"
+     dest: "{{ kiali.dw_directory }}/deploy-kiali-to-kubernetes.sh"
+     mode: 0777
+  when: kiali_information.stat.exists == False
 
 - name: Install Kiali
-  schell: sh deploy-kiali-to-kubernetes.sh
+  shell: |
+    deploy-kiali-to-kubernetes.sh

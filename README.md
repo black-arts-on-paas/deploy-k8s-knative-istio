@@ -132,6 +132,7 @@ __PaaS Knowledge Group__
 * Mostafa Charem
 * Omar Rodriguez
 * Pedro Peñaloza
+* Yasser Aquino
 
 
 
