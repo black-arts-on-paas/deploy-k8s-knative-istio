@@ -42,24 +42,24 @@ Requirements
 
 
 <p align="center">
-<img width="700" height="400" src="img/create_sa.JPG" title="Create SA">
+<img width="850" height="400" src="img/create_sa.JPG" title="Create SA">
 </p>
 
 ***
 
 <p align="center">
-<img width="700" height="400" src="img/access_sa.jpg" title="Create SA">
+<img width="850" height="400" src="img/access_sa.JPG" title="Create SA">
 </p>
 
 ***
 
 <p align="center">
-<img width="700" height="400" src="img/grant_roles_sa.jpg" title="Create SA">
+<img width="850" height="400" src="img/grant_roles_sa.JPG" title="Create SA">
 </p>
 
 ***
 <p align="center">
-<img width="700" height="400" src="img/create_key.jpg" title="Create SA">
+<img width="850" height="400" src="img/create_key.JPG" title="Create SA">
 </p>
 
 
