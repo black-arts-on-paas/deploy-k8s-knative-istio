@@ -3,7 +3,7 @@
 
 - name: Check if Kiali Exists
   stat:
-     path: "{{ gcp.sdk_working_directory }}/deploy-kiali-to-kubernetes.sh"
+     path: "{{ kiali.dw_directory }}/deploy-kiali-to-kubernetes.sh"
   register: kiali_information
 
 - name: Download Kiali Script
