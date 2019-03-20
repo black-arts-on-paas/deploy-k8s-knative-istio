@@ -104,7 +104,7 @@ ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 
 
 ## Note
-- More Platforms like a Azure or AWS to soon.
+- Platforms like a Azure or AWS to soon.
 * Windows Environment to soon.
 
 
