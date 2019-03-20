@@ -14,7 +14,7 @@ spec:
         prefix: /endpoint
     route:
     - destination:
-        host: example.svc.default.cluster.local
+        host: "example.svc.default.cluster.local"
         subset: v1
     corsPolicy:
       allowOrigin:
