@@ -7,15 +7,15 @@ Roles
 
   - Install Google SDK and "gcloud" CLI tool. **MacOS and Debian/Redhat based distros support**
   - Deploy a K8s cluster using Google Kubernetes Services.
-  - Activate RBAC in
-
+  - Activate RBAC into k8s Cluster
 
 
 
 <img title="Helm" width="80" height="80" src="https://cdn-images-1.medium.com/max/1600/1*HSw4KtK66LSAP8qEPSq0nQ.png">
 
 
-- Install Tiller server and Helm client **MacOS and Debian/Redhat based distros support**
+- Install Tiller server into k8s cluster 
+- Install Helm client **MacOS and Debian/Redhat based distros support**
 
 
 
@@ -40,6 +40,8 @@ Roles
 
 
 - Install Kiali to Service Mesh Observavility
+
+
 
 Requirements
 ------------
