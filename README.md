@@ -38,6 +38,8 @@ Requirements
 ### GCP: 
 
 1. Create a Service Account for access to your GCP Project: https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=youproject
+
+
 <p align="center">
 <img width="850" height="550" src="img/create_sa.JPG" title="Create SA">
 </p>
@@ -46,9 +48,13 @@ Requirements
 
 
 2. Grant access to others accounts to use this Service Account. **Optional**
+
+
 <p align="center">
 <img width="850" height="550" src="img/access_sa.JPG" title="Access SA">
 </p>
+<br/>
+<br/>
 
 ***
 
@@ -58,16 +64,23 @@ Requirements
     - Service Management Administrator
     - Service Usage Admin
 
+
 <p align="center">
 <img width="850" height="550" src="img/grant_roles_sa.JPG" title="Roles SA">
 </p>
 
+***
 
 - Download the key to the local path for deploy this playbook
-***
+
+
 <p align="center">
 <img width="850" height="550" src="img/create_key.JPG" title="Key SA">
 </p>
+
+***
+
+
 
 
 ## Example for Google Cloud Compute
@@ -85,28 +98,42 @@ Requirements
         - everis-paas-demo
 ---
 
-## To Run and Test PaaS demo
+### To Run and Test PaaS demo
 
 ```bash
 ansible-playbook site.yaml -i hosts  -e gcp_keyfile=/Path/to/key.json
 ```
 
 ## Note
-More Platforms like a Azure or AWS to soon.
-Windows Environment to soon.
+- More Platforms like a Azure or AWS to soon.
+* Windows Environment to soon.
 
-License
--------
 
-BSD
 
 Author Information
 ------------------
 
+<img width="100" height="100" src="https://everislima.hiringroom.com/data/accounts/everislima/profile.jpg" >
 
-<img width="80" height="80" src="https://everislima.hiringroom.com/data/accounts/everislima/profile.jpg" >
-- Digital Architecture
-  - Grupo de Conociemiento Paas
+
+
+__PaaS Knowledge Group__
+
+## Members:
+* Adrián González
+* Alejandro Torres
+* Antonio Sequera
+* Iñigo Iglesias
+* Jeferson Ortiz
+* Jesus Sanchez
+* Jonis González
+* Jordy Peralta
+* Miguel Rivera
+* Mostafa Charem
+* Omar Rodriguez
+* Pedro Peñaloza
+
+
 
 
 
