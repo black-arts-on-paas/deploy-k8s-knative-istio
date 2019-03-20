@@ -12,5 +12,5 @@
     --filename https://raw.githubusercontent.com/knative/serving/v0.4.0/third_party/config/build/clusterrole.yaml
   register: install_result
   until: install_result.rc == 0
-  retries: 2
-  delay: 10
+  retries: 3
+  delay: 20
