@@ -38,5 +38,5 @@
      line: export PATH="$PATH:{{ gcp.sdk_working_directory }}/google-cloud-sdk/bin"
      create: yes
 
-- name: lukita
+- name: Apply new Path
   shell: source /etc/profile.d/env.sh

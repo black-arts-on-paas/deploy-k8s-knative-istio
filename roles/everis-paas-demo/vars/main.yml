@@ -10,7 +10,7 @@ gcp:
   resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
   k8s_cluster_name: demo-paas
   k8s_min_nodes: 1
-  k8s_man_nodes: 4
+  k8s_man_nodes: 6
   k8s_num_nodes: 2
   k8s_admin_sa: demo-paas
   k8s_admin_binding: root-sa-binding

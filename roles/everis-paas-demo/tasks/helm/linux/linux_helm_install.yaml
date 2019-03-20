@@ -25,4 +25,4 @@
      src: "{{ helm.dw_directory }}/linux-amd64/helm"
      dest: /usr/bin
      mode: 0755
-#  when: helm_information.stat.exists == False
+  when: helm_information.stat.exists == False
