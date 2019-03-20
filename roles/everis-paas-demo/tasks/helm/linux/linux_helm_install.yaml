@@ -1,0 +1,28 @@
+---
+
+- name: Check if script exists
+  stat:
+     path: "{{ helm.dw_directory }}/{{ helm.pkg_name }}"
+  register: helm_information
+
+- name: Download Helm install script
+  get_url:
+     url: "{{ helm.dw_url }}"
+     dest: "{{ helm.dw_directory }}"
+     mode: 0777
+  when: helm_information.stat.exists == False
+
+
+- name: Untar Helm pkg
+  unarchive:
+     src: "{{ helm.dw_directory }}/{{ helm.pkg_name }}"
+     dest: "{{ helm.dw_directory }}"
+     remote_src: yes
+  when: helm_information.stat.exists == False
+
+- name: Enabled Helm CLI
+  copy:
+     src: "{{ helm.dw_directory }}/linux-amd64/helm"
+     dest: /usr/bin
+     mode: 0755
+  when: helm_information.stat.exists == False

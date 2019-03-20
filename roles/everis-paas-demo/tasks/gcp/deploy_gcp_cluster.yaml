@@ -20,6 +20,19 @@
 
 - debug:
     msg: " Cluster {{ gcp.k8s_cluster_name }} already exist into project: {{ gcp.project_id }} "
+  when: gcp.k8s_cluster_name in current_deploy_cluster.stdout.split()
 
 - name: Get cluster Credential
   shell: gcloud container clusters get-credentials {{ gcp.k8s_cluster_name }}
+
+- name: Query Permissions
+  shell: kubectl auth can-i '*' '*' --as $(gcloud config get-value core/account)
+  register: cluster_permissions
+  ignore_errors: True
+
+- name: Create RBAC for GoogleSA into GKS
+  shell: |
+    kubectl create clusterrolebinding cluster-admin-binding \
+    --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
+  when: cluster_permissions.stdout == 'no'
+

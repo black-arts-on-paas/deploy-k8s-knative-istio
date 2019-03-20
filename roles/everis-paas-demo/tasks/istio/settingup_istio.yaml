@@ -1,15 +1,4 @@
 ---
-- name: Query Permissions
-  shell: |
-    kubectl auth can-i '*' '*' --as $(gcloud config get-value core/account)
-  register: cluster_permissions
-
-- name: Setting Up permission to local user to deploy Istio
-  shell: |
-    kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin \
-    --user=$(gcloud config get-value core/account)
-  when: cluster_permissions.stdout != 'yes'
-
 - name: Install CRDs for istio support
   shell: |
     kubectl apply \
@@ -21,6 +10,10 @@
     kubectl apply \
     --filename \
     https://github.com/knative/serving/releases/download/v0.4.0/istio.yaml
+  register: istio_install_result
+  until: istio_install_result.rc == 0
+  retries: 2
+  delay: 10
 
 - name: Query labels on default namepsaces
   shell: |
