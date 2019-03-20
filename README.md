@@ -5,7 +5,9 @@ Roles
 <img width="80" height="80" src="https://cloud.google.com/_static/images/cloud/icons/favicons/onecloud/apple-icon.png" >
 
 
-  -  Install SDK Google and "gcloud" CLI tool. **MacOS and Debian/Redhat based distros support**
+  - Install Google SDK and "gcloud" CLI tool. **MacOS and Debian/Redhat based distros support**
+  - Deploy a K8s cluster using Google Kubernetes Services.
+  - Activate RBAC in
 
 
 
@@ -21,7 +23,7 @@ Roles
 <img title="Istio" width="80" height="80" src="https://cdn-images-1.medium.com/max/1600/1*IygIdDiNgq3YBzTtaYvIWA.png">
 
 
-- Install Istio Control and Data plane
+- Install Istio Service Mesh
 
 
 
@@ -31,6 +33,13 @@ Roles
 
 - Install Knative and Dependencies
 
+
+
+
+<img title="Kiali" width="80" height="80" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
+
+
+- Install Kiali to Service Mesh Observavility
 
 Requirements
 ------------
