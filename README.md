@@ -36,7 +36,7 @@ Roles
 
 
 
-<img title="Kiali" width="100" height="100" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
+<img title="Kiali" width="120" height="80" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
 
 
 - Install Kiali to Service Mesh Observavility
