@@ -1,28 +1,67 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: gc-example-a
-  namespace: default
+  name: grupo-paas
+  namespace: {{ demo.namespaces }}
 spec:
-  hosts:
-  - "gc-example-a.gdefault.svc.cluster.local"
   gateways:
-  - gc-example-a-gateway
+  - grupo-paas-gateway
+  hosts:
+  - '*'
   http:
-  - match:
-    - uri:
-        prefix: /endpoint
+  - corsPolicy:
+      allowCredentials: true
+      allowHeaders:
+      - content-type
+      - content-length
+      - x-requested-with
+      - device
+      - authorization
+      allowMethods:
+      - GET
+      - OPTIONS
+      allowOrigin:
+      - '*'
+      exposeHeaders:
+      - content-type
+      - content-length
+      - requested-with
+      - device
+      - authorization
+    match:
+    - headers:
+        device:
+          exact: iphone
+      uri:
+        prefix: /grupo-paas
     route:
     - destination:
-        host: "example.svc.default.cluster.local"
-        subset: v1
-    corsPolicy:
-      allowOrigin:
-      - example.com
-      allowMethods:
-      - POST
-      - GET
-      allowCredentials: false
+        host: grupo-paas
+        port:
+          number: 8000
+        subset: iphone
+  - corsPolicy:
+      allowCredentials: true
       allowHeaders:
-      - X-Foo-Bar
-      maxAge: "1d"    
+      - content-type
+      - content-length
+      - x-requested-with
+      - device
+      - authorization
+      allowMethods:
+      - GET
+      - OPTIONS
+      allowOrigin:
+      - '*'
+      exposeHeaders:
+      - content-type
+      - content-length
+      - requested-with
+      - device
+      - authorization
+    route:
+    - destination:
+        host: grupo-paas
+        port:
+          number: 8000
+        subset: android

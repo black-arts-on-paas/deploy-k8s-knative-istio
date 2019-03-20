@@ -1,15 +1,15 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: gc-example-b-gateway
+  name: grupo-paas-gateway
   namespace: grupo-conocimiento
 spec:
   selector:
-    istio: ingressgateway # use Istio default gateway implementation
+    istio: ingressgateway
   servers:
-  - port:
-      number: 80
+  - hosts:
+    - '*'
+    port:
       name: http
+      number: 80
       protocol: HTTP
-    hosts:
-    - "gc-example-b.grupo-conocimiento.svc.cluster.local"
