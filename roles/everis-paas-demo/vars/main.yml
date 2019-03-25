@@ -5,7 +5,7 @@ mac_os:
   arc: 'x86_64'
 
 gcp:
-  project_id: everis-paas-demo-2
+  project_id: helical-apricot-222515
   zone: 'us-central1-a'
   resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
   k8s_cluster_name: demo-paas
@@ -34,6 +34,9 @@ helm:
   dw_directory: /home
   pkg_name: helm-v2.13.0-linux-amd64.tar.gz
 
+kiali:
+  dw_url: https://raw.githubusercontent.com/kiali/kiali/master/deploy/kubernetes/deploy-kiali-to-kubernetes.sh
+  dw_directory: /home
 
 #Observability Kiali
 KIALI_USERNAME: admin
